@@ -1,2 +1,6 @@
 # ProyectoGrafos
-Este es el segundo del semestre IV - complejidad ALgoritmica
+Semestre IV - complejidad ALgoritmica
+
+Java
+Grafo
+Lista de adyacencia

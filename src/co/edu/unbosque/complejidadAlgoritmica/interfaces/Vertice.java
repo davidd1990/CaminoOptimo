@@ -1,5 +1,5 @@
 package co.edu.unbosque.complejidadAlgoritmica.interfaces;
-
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,7 +17,7 @@ public class Vertice implements IVertice<Object, Object>{
 	 */
 	Object v, k;
 	boolean m;
-	List<Object> l;
+	List<Object> l = new ArrayList<Object>();
 	
 	public Vertice(Object v, Object k){
 		this.v = v;
@@ -69,7 +69,6 @@ public class Vertice implements IVertice<Object, Object>{
 	 */
 	public void desmarcar() {
 		this.m = false;
-		
 	}
 
 	public IArco darSucesor(Object idDestino) {

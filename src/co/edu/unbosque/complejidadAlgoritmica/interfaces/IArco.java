@@ -1,28 +1,28 @@
 package co.edu.unbosque.complejidadAlgoritmica.interfaces;
 
 /**
- * Interface que modela la declaración de un Arco
+ * Interface que modela la declaraci?n de un Arco
  * @author Pedro Guillermo
- * @param <K> Parámetro que representa el ID de un vértice
- * @param <V> Parámetro que representa el ELEMENTO de un vértice
+ * @param <K> Par?metro que representa el ID de un v?rtice
+ * @param <V> Par?metro que representa el ELEMENTO de un v?rtice
  */
 public interface IArco<K,V>
 {
 	/**
-	 * Método que retorna el costo del arco
+	 * M?todo que retorna el costo del arco
 	 * @return el costo del arco
 	 */
 	public double darCosto();
 	
 	/**
-	 * Método que retorna el vértice origen del arco
-	 * @return el vértice origen del arco
+	 * M?todo que retorna el v?rtice origen del arco
+	 * @return el v?rtice origen del arco
 	 */
 	public IVertice<K, V> darOrigen();
 	
 	/**
-	 * Método que retorna el vértice destino del arco
-	 * @return el vértice destino del arco
+	 * M?todo que retorna el v?rtice destino del arco
+	 * @return el v?rtice destino del arco
 	 */
 	public IVertice<K, V> darDestino();
 }

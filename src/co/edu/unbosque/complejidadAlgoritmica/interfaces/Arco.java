@@ -11,13 +11,13 @@ package co.edu.unbosque.complejidadAlgoritmica.interfaces;
 public class Arco implements IArco{
 
 	IVertice vo, vd;
-	Double c;
+	double c;
 	
 	/**
 	 * Metodo que retorna el costo del arco
 	 * @return el costo del arco
 	 */
-	void Arco (Vertice vo, Vertice vd, Double c){
+	void Arco (Vertice vo, Vertice vd, double c){
 		this.vo = vo;
 		this.vd = vd;
 		this.c = c;

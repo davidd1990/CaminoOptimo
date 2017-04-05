@@ -59,10 +59,7 @@ public class Vertice implements IVertice<Object, Object>{
 	/**
 	 * Metodo que marca el vertice (True)
 	 */
-	public void marcar() {
-		this.m = true;
-		
-	}
+	public void marcar() { this.m = true; }
 
 	/**
 	 * Metodo que desmarca el vertice (False)
@@ -72,7 +69,7 @@ public class Vertice implements IVertice<Object, Object>{
 	}
 
 	public IArco darSucesor(Object idDestino) {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
 

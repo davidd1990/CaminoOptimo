@@ -1,9 +1,6 @@
 package co.edu.unbosque.complejidadAlgoritmica.interfaces;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * Created by JUANDAVID on 2/04/17.
@@ -12,8 +9,6 @@ public class GrafoDirigido implements IGrafoDirigido{
     int orden = 0;
     ArrayList <IArco> arcos = new ArrayList<IArco>();
     ArrayList<IVertice> vertices = new ArrayList<IVertice>();
-    Stack<IVertice> stack = new Stack();
-    LinkedList<IVertice> queue = new LinkedList<IVertice>();
     List<IVertice> camino = new ArrayList<IVertice>();
 
     /**
@@ -59,31 +54,46 @@ public class GrafoDirigido implements IGrafoDirigido{
 
 
     public List<IVertice> darRecorridoEnProfundidad(Object idOrigen) {
-
-        this.stack.add(this.darVertice(idOrigen));
+        Stack<IVertice> stack = new Stack();
+        stack.add(this.darVertice(idOrigen));
         while(!stack.isEmpty()){
-            IVertice v = this.stack.pop();
+
+            IVertice v = stack.pop();
 
             for(IArco ver: (ArrayList<IArco>) v.darSucesores()){
                 if(!ver.darDestino().darMarca())
                 {
                     ver.darDestino().marcar();
-                    this.stack.push(ver.darOrigen());
-                    this.camino.add(ver.darOrigen());
+                    stack.push(ver.darOrigen());
+                    camino.add(ver.darOrigen());
                 }
             }
+
         }
 
-        return this.camino;
+        return camino;
     }
 
 
     public List<IVertice> darRecorridoPorAnchura(Object idOrigen) {
 
-        this.stack.add(this.darVertice(idOrigen));
 
+        Queue queue = new LinkedList();
+        queue.add(this.darVertice(idOrigen));
+        this.darVertice(idOrigen).marcar();
+        while(!queue.isEmpty()) {
 
-        return this.camino;
+            IVertice node = (IVertice) queue.remove();
+
+            for(IArco child: (ArrayList<IArco>) node.darSucesores()){
+                child.darDestino().marcar();
+                queue.add(child.darOrigen());
+                camino.add(child.darOrigen());
+            }
+
+        }
+        
+        return camino;
 
     }
 

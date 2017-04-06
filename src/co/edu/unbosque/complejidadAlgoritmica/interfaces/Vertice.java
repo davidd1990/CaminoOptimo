@@ -95,7 +95,7 @@ public class Vertice implements IVertice<Object, Object>{
 	}
 
 	public IArco removerSucesor(Object idSucesor) {
-		// TODO Auto-generated method stub
+
 		int i = 0;
 		IArco n;
 		for (IArco lista  : l){

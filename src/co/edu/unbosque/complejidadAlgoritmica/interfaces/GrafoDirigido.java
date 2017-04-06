@@ -16,7 +16,8 @@ public class GrafoDirigido implements IGrafoDirigido{
      * @return el orden del Grafo
      */
     public int darOrden() {
-        return orden;
+
+        return vertices.size() ;
     }
 
     /**
@@ -25,31 +26,75 @@ public class GrafoDirigido implements IGrafoDirigido{
      * @return el v?rtice correspondiente al id ingresado. Null si no existe.
      */
     public IVertice darVertice(Object idVertice) {
+
+        for (IVertice lista  : vertices){
+            if(lista.darId().equals(idVertice))
+                return lista;
+        }
+
         return null;
+
     }
 
 
     public IArco darArco(Object idOrigen, Object idDestino) {
-    	
+
+        for (IArco lista  : arcos){
+            if(lista.darDestino().equals(idDestino) && lista.darOrigen().equals(idOrigen))
+                return lista;
+        }
+
         return null;
     }
 
     public boolean agregarVertice(Object idVertice, Object infoVertice) {
+
     	IVertice vertice = new Vertice(idVertice,infoVertice);
     	vertices.add(vertice);
-    	
-        return true;
+
+    	return true;
+
     }
 
 
     public IVertice eliminarVertice(Object idVertice) {
+
+        int i = 0;
+        IVertice n;
+        for (IVertice lista  : vertices){
+            if(lista.darId().equals(idVertice)){
+
+                for (IArco arco : (ArrayList<IArco>) lista.darSucesores() ){
+                    this.eliminarArco(arco.darOrigen(), arco.darDestino());
+                }
+
+                vertices.remove(i);
+                n = lista;
+                return n;
+
+            }
+            i++;
+
+        }
         return null;
     }
 
 
     public IArco eliminarArco(Object idOrigen, Object idDestino) {
-    	
+
+        int i = 0;
+        IArco n;
+        for (IArco lista  : arcos){
+            if(lista.darDestino().equals(idDestino) && lista.darOrigen().equals(idOrigen)){
+                arcos.remove(i);
+                n = lista;
+                return n;
+            }
+            i++;
+
+        }
         return null;
+
     }
 
 
@@ -92,7 +137,7 @@ public class GrafoDirigido implements IGrafoDirigido{
             }
 
         }
-        
+
         return camino;
 
     }

@@ -19,7 +19,6 @@ public class Vertice implements IVertice<Object, Object>{
 	Object v, k;
 	boolean m;
 	List<IArco> l = new ArrayList<IArco>();
-	Stack<Vertice> stack = new Stack();
 	
 	public Vertice(Object v, Object k){
 		this.v = v;
@@ -79,28 +78,15 @@ public class Vertice implements IVertice<Object, Object>{
 	}
 	return null;
 	}
-	public void darRecorridoEnProfundidad(List vertices) {
-		// TODO Auto-generated method stub
-		this.stack.add(this);
-		while(!stack.isEmpty()){
-			Vertice v = this.stack.pop();
-			
-			for(IArco ver: (ArrayList<IArco>) v.darSucesores()){
-				if(!ver.darDestino().darMarca())
-				{
-					ver.darDestino().marcar();
-					this.stack.push((Vertice) ver.darOrigen());
-					
-					
-				}
-			}
-		}
-		
+
+
+	public void darRecorridoEnProfundidad(List<IVertice<Object, Object>> iVertices) {
+
 	}
 
-	public void darRecorridoPorAnchura(List vertices) {
-		// TODO Auto-generated method stub
-		
+
+	public void darRecorridoPorAnchura(List<IVertice<Object, Object>> iVertices) {
+
 	}
 
 	public boolean agregarSucesor(IArco sucesor) {

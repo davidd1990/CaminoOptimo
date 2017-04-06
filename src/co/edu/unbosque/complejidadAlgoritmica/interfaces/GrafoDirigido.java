@@ -1,7 +1,9 @@
 package co.edu.unbosque.complejidadAlgoritmica.interfaces;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * Created by JUANDAVID on 2/04/17.
@@ -10,7 +12,9 @@ public class GrafoDirigido implements IGrafoDirigido{
     int orden = 0;
     ArrayList <IArco> arcos = new ArrayList<IArco>();
     ArrayList<IVertice> vertices = new ArrayList<IVertice>();
-    
+    Stack<IVertice> stack = new Stack();
+    LinkedList<IVertice> queue = new LinkedList<IVertice>();
+    List<IVertice> camino = new ArrayList<IVertice>();
 
     /**
      * M?todo que retorna el orden (cantidad de nodos) del Grafo.
@@ -35,7 +39,6 @@ public class GrafoDirigido implements IGrafoDirigido{
         return null;
     }
 
-
     public boolean agregarVertice(Object idVertice, Object infoVertice) {
     	IVertice vertice = new Vertice(idVertice,infoVertice);
     	vertices.add(vertice);
@@ -49,9 +52,6 @@ public class GrafoDirigido implements IGrafoDirigido{
     }
 
 
-  
-
-
     public IArco eliminarArco(Object idOrigen, Object idDestino) {
     	
         return null;
@@ -59,19 +59,37 @@ public class GrafoDirigido implements IGrafoDirigido{
 
 
     public List<IVertice> darRecorridoEnProfundidad(Object idOrigen) {
-        return null;
+
+        this.stack.add(this.darVertice(idOrigen));
+        while(!stack.isEmpty()){
+            IVertice v = this.stack.pop();
+
+            for(IArco ver: (ArrayList<IArco>) v.darSucesores()){
+                if(!ver.darDestino().darMarca())
+                {
+                    ver.darDestino().marcar();
+                    this.stack.push(ver.darOrigen());
+                    this.camino.add(ver.darOrigen());
+                }
+            }
+        }
+
+        return this.camino;
     }
 
 
     public List<IVertice> darRecorridoPorAnchura(Object idOrigen) {
-    	return null;
+
+        this.stack.add(this.darVertice(idOrigen));
+
+
+        return this.camino;
+
     }
 
-    @Override
     public boolean agregarArco(Object idOrigen, Object idDestino, double costoArco) {
     	IArco arco = new Arco(idOrigen,idDestino,costoArco);
     	arcos.add(arco);
     	return true;
-
     }
 }

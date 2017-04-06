@@ -1,6 +1,7 @@
 package co.edu.unbosque.complejidadAlgoritmica.interfaces;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * Clase que representa los nodos
@@ -17,7 +18,8 @@ public class Vertice implements IVertice<Object, Object>{
 	 */
 	Object v, k;
 	boolean m;
-	List<Object> l = new ArrayList<Object>();
+	List<IArco> l = new ArrayList<IArco>();
+	Stack<Vertice> stack = new Stack();
 	
 	public Vertice(Object v, Object k){
 		this.v = v;
@@ -69,12 +71,30 @@ public class Vertice implements IVertice<Object, Object>{
 	}
 
 	public IArco darSucesor(Object idDestino) {
+	
 
-		return null;
+    for (IArco lista  : l){
+    			if(lista.darDestino().equals(idDestino))
+    			return lista;	
 	}
-
+	return null;
+	}
 	public void darRecorridoEnProfundidad(List vertices) {
 		// TODO Auto-generated method stub
+		this.stack.add(this);
+		while(!stack.isEmpty()){
+			Vertice v = this.stack.pop();
+			
+			for(IArco ver: (ArrayList<IArco>) v.darSucesores()){
+				if(!ver.darDestino().darMarca())
+				{
+					ver.darDestino().marcar();
+					this.stack.push((Vertice) ver.darOrigen());
+					
+					
+				}
+			}
+		}
 		
 	}
 
@@ -84,13 +104,25 @@ public class Vertice implements IVertice<Object, Object>{
 	}
 
 	public boolean agregarSucesor(IArco sucesor) {
-		// TODO Auto-generated method stub
-		return false;
+		l.add(sucesor);
+		return true;
 	}
 
 	public IArco removerSucesor(Object idSucesor) {
 		// TODO Auto-generated method stub
+		int i = 0;
+		IArco n;
+		for (IArco lista  : l){
+			if(lista.darDestino().equals(idSucesor)){
+				l.remove(i);
+				n = lista;
+				return n;	
+			}
+			i++;
+
+		}
 		return null;
+
 	}
 
 }

@@ -17,9 +17,9 @@ public class Arco implements IArco{
 	 * Metodo que retorna el costo del arco
 	 * @return el costo del arco
 	 */
-	void Arco (Vertice vo, Vertice vd, double c){
-		this.vo = vo;
-		this.vd = vd;
+	 public Arco(Object vo, Object vd, double c){
+		this.vo =(IVertice) vo;
+		this.vd =(IVertice) vd;
 		this.c = c;
 	}
 	

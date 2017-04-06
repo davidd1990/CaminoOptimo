@@ -1,5 +1,6 @@
 package co.edu.unbosque.complejidadAlgoritmica.interfaces;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -7,6 +8,9 @@ import java.util.List;
  */
 public class GrafoDirigido implements IGrafoDirigido{
     int orden = 0;
+    ArrayList <IArco> arcos = new ArrayList<IArco>();
+    ArrayList<IVertice> vertices = new ArrayList<IVertice>();
+    
 
     /**
      * M?todo que retorna el orden (cantidad de nodos) del Grafo.
@@ -27,12 +31,16 @@ public class GrafoDirigido implements IGrafoDirigido{
 
 
     public IArco darArco(Object idOrigen, Object idDestino) {
+    	
         return null;
     }
 
 
     public boolean agregarVertice(Object idVertice, Object infoVertice) {
-        return false;
+    	IVertice vertice = new Vertice(idVertice,infoVertice);
+    	vertices.add(vertice);
+    	
+        return true;
     }
 
 
@@ -41,12 +49,11 @@ public class GrafoDirigido implements IGrafoDirigido{
     }
 
 
-    public boolean agregarArco(Object idOrigen, Object idDestino, double costoArco) {
-        return false;
-    }
+  
 
 
     public IArco eliminarArco(Object idOrigen, Object idDestino) {
+    	
         return null;
     }
 
@@ -57,6 +64,14 @@ public class GrafoDirigido implements IGrafoDirigido{
 
 
     public List<IVertice> darRecorridoPorAnchura(Object idOrigen) {
-        return null;
+    	return null;
+    }
+
+    @Override
+    public boolean agregarArco(Object idOrigen, Object idDestino, double costoArco) {
+    	IArco arco = new Arco(idOrigen,idDestino,costoArco);
+    	arcos.add(arco);
+    	return true;
+
     }
 }

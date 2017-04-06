@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d8eb86c3-ce5e-40fe-9051-87d9e235186c" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/co/edu/unbosque/complejidadAlgoritmica/interfaces/Dijkstra.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/co/edu/unbosque/complejidadAlgoritmica/interfaces/GrafoDirigido.java" afterPath="$PROJECT_DIR$/src/co/edu/unbosque/complejidadAlgoritmica/interfaces/GrafoDirigido.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/co/edu/unbosque/complejidadAlgoritmica/interfaces/Vertice.java" afterPath="$PROJECT_DIR$/src/co/edu/unbosque/complejidadAlgoritmica/interfaces/Vertice.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -59,11 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GrafoDirigido.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GrafoDirigido.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/co/edu/unbosque/complejidadAlgoritmica/interfaces/GrafoDirigido.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1020">
-              <caret line="68" column="17" lean-forward="true" selection-start-line="68" selection-start-column="17" selection-end-line="68" selection-end-column="17" />
+            <state relative-caret-position="-189">
+              <caret line="66" column="74" lean-forward="false" selection-start-line="66" selection-start-column="74" selection-end-line="66" selection-end-column="74" />
               <folding>
                 <element signature="e#241#248#0" expanded="true" />
                 <element signature="e#300#310#0" expanded="true" />
@@ -73,11 +74,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Dijkstra.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/co/edu/unbosque/complejidadAlgoritmica/interfaces/Dijkstra.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="21" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Vertice.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/co/edu/unbosque/complejidadAlgoritmica/interfaces/Vertice.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="454">
-              <caret line="55" column="15" lean-forward="false" selection-start-line="55" selection-start-column="11" selection-end-line="55" selection-end-column="15" />
+            <state relative-caret-position="93">
+              <caret line="57" column="5" lean-forward="true" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -116,6 +127,7 @@
         <option value="$PROJECT_DIR$/src/co/edu/unbosque/complejidadAlgoritmica/interfaces/IArco.java" />
         <option value="$PROJECT_DIR$/src/co/edu/unbosque/complejidadAlgoritmica/interfaces/Vertice.java" />
         <option value="$PROJECT_DIR$/src/co/edu/unbosque/complejidadAlgoritmica/interfaces/GrafoDirigido.java" />
+        <option value="$PROJECT_DIR$/src/co/edu/unbosque/complejidadAlgoritmica/interfaces/Dijkstra.java" />
       </list>
     </option>
   </component>
@@ -624,12 +636,12 @@
       <option name="presentableId" value="Default" />
       <updated>1491170764944</updated>
       <workItem from="1491170776948" duration="1698000" />
-      <workItem from="1491447212351" duration="3526000" />
+      <workItem from="1491447212351" duration="5607000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5224000" />
+    <option name="totallyTimeSpent" value="7305000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -768,25 +780,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/co/edu/unbosque/complejidadAlgoritmica/interfaces/GrafoDirigido.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-189">
+          <caret line="66" column="74" lean-forward="false" selection-start-line="66" selection-start-column="74" selection-end-line="66" selection-end-column="74" />
+          <folding>
+            <element signature="e#241#248#0" expanded="true" />
+            <element signature="e#300#310#0" expanded="true" />
+            <element signature="e#355#365#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/co/edu/unbosque/complejidadAlgoritmica/interfaces/Vertice.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="55" column="15" lean-forward="false" selection-start-line="55" selection-start-column="11" selection-end-line="55" selection-end-column="15" />
+        <state relative-caret-position="93">
+          <caret line="57" column="5" lean-forward="true" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/co/edu/unbosque/complejidadAlgoritmica/interfaces/GrafoDirigido.java">
+    <entry file="file://$PROJECT_DIR$/src/co/edu/unbosque/complejidadAlgoritmica/interfaces/Dijkstra.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="68" column="17" lean-forward="true" selection-start-line="68" selection-start-column="17" selection-end-line="68" selection-end-column="17" />
-          <folding>
-            <element signature="e#241#248#0" expanded="true" />
-            <element signature="e#300#310#0" expanded="true" />
-            <element signature="e#355#365#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="75">
+          <caret line="5" column="21" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>

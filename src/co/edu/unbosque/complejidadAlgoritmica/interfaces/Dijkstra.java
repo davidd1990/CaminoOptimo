@@ -1,4 +1,8 @@
 package co.edu.unbosque.complejidadAlgoritmica.interfaces;
+
+import java.util.HashMap;
+import java.util.HashSet;
+
 //Programa en Java para el algoritmo de Dijkstra que encuentra
 //el camino mas corto para un unico origen
 //Se emplea una matrix de adjacencia para representar el grafo
@@ -34,25 +38,26 @@ public class Dijkstra {
             System.out.println(i + " \t\t " + dist[i]);
     }
 
-    private static void dijkstra(GrafoDirigido grafo, Object idOrigen)
+    public HashMap<Integer, Integer> dijkstra(GrafoDirigido grafo, Object idOrigen)
     {
-
+    	HashMap <Integer,Integer> m = new HashMap<Integer,Integer>();
+    	double costo;
         int[] dist = new int[grafo.orden];
         // dist[i] guarda la distancia mas corta desde src hasta el vertice i
 
-        boolean[] verticeYaProcesado = new boolean[V];
+        boolean[] verticeYaProcesado = new boolean[grafo.orden];
         //Este arreglo tiene true si el vertice i ya fue procesado
 
         // Initialize all distances as INFINITE and stpSet[] as false
-        for (int i = 0; i < V; i++) {
+        for (int i = 0; i < grafo.orden; i++) {
             dist[i] = Integer.MAX_VALUE;
             verticeYaProcesado[i] = false;
         }
         // La distancia del vertice origen hacia el mismo es siempre 0
-        dist[src] = 0;
+        dist[(Integer)idOrigen] = 0;
 
         //Encuentra el camino mas corto para todos los vertices
-        for (int count = 0; count < V-1; count++)
+        for (int count = 0; count < grafo.orden-1; count++)
         {
 
             //Toma el vertice con la distancia minima del cojunto de vertices aun no procesados
@@ -63,35 +68,32 @@ public class Dijkstra {
             verticeYaProcesado[u] = true;
 
             // Update dist value of the adjacent vertices of the picked vertex.
-            for (int v = 0; v < V; v++)
-
-                //Se actualiza la dist[v] solo si no esta en verticeYaProcesado, hay un
+            for (int v = 0; v < grafo.orden; v++){
+            	 //Se actualiza la dist[v] solo si no esta en verticeYaProcesado, hay un
                 //arco desde u a v y el peso total del camino desde src hasta v a traves de u es
                 // mas pequeno que el valor actual de dist[v]
-                if (!verticeYaProcesado[v] && grafo[u][v] > 0 && dist[u] != Integer.MAX_VALUE
-                        && dist[u]+grafo[u][v] < dist[v])
-                    dist[v] = dist[u] + grafo[u][v];
+            	if( grafo.darArco(u,v)!= null){
+            		  costo =  grafo.darArco(u,v).darCosto();
+            	}else{
+            		costo = 0;
+            	}
+       
+                if (!verticeYaProcesado[v] && costo > 0  && dist[u] != Integer.MAX_VALUE
+                        && dist[u]+grafo.darArco(u,v).darCosto() < dist[v])
+                    dist[v] = (int) (dist[u] + costo);
+            	
+            }
+            
+            for (int i = 0; i < grafo.orden; i++)
+            		m.put(i, dist[i]);
+               
+               
         }
-
+return m;
         // se imprime el arreglo con las distancias
-        printSolution(dist, V);
+       
     }
 
     // driver program to test above function
-    public static void main(String[] args)
-    {
-        /* Let us create the example graph discussed above */
-        int[][] graph = {{0, 4, 0, 0, 0, 0, 0, 8, 0},
-                {4, 0, 8, 0, 0, 0, 0, 11, 0},
-                {0, 8, 0, 7, 0, 4, 0, 0, 2},
-                {0, 0, 7, 0, 9, 14, 0, 0, 0},
-                {0, 0, 0, 9, 0, 10, 0, 0, 0},
-                {0, 0, 4, 0, 10, 0, 2, 0, 0},
-                {0, 0, 0, 14, 0, 2, 0, 1, 6},
-                {8, 11, 0, 0, 0, 0, 1, 0, 7},
-                {0, 0, 2, 0, 0, 0, 6, 7, 0}
-        };
-
-        dijkstra(graph, 0);
-    }
+  
 }

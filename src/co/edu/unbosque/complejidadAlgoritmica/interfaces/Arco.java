@@ -4,9 +4,6 @@ package co.edu.unbosque.complejidadAlgoritmica.interfaces;
 /**
  * Interface que modela la declaraci�n de un Arco
  * @author  JUAN DAVID IBAÑEZ ENCISO, JUAN DAVID PARDO REINA, SANTIAGO SUAREZ HERNANDEZ
- * @param <vo> Parametro que representa el vertice de origen
- * @param <vd> Parametro que representa el vertice de destino
- * @param <c>  Parametro que respresenta el costo del arco
  */
 public class Arco implements IArco{
 

@@ -3,6 +3,6 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/co/edu/unbosque/complejidadAlgoritmica/interfaces/IArco.java" charset="US-ASCII" />
     <file url="file://$PROJECT_DIR$/src/co/edu/unbosque/complejidadAlgoritmica/interfaces/IGrafoDirigido.java" charset="ISO-8859-1" />
-    <file url="file://$PROJECT_DIR$/src/co/edu/unbosque/complejidadAlgoritmica/interfaces/IVertice.java" charset="UTF-16" />
+    <file url="file://$PROJECT_DIR$/src/co/edu/unbosque/complejidadAlgoritmica/interfaces/IVertice.java" charset="UTF-8" />
   </component>
 </project>

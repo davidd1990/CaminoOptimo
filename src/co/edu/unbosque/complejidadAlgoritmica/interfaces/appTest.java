@@ -11,11 +11,20 @@ import javax.swing.JFileChooser;
 
 public class appTest {
 
-	public static int[][] lectorArchivos(String dato) throws FileNotFoundException, IOException 
-	{
+	GrafoDirigido grafo = new GrafoDirigido();
+
+
+	public File leearArchivo(){
 		JFileChooser file = new JFileChooser();
 		file.showOpenDialog(file);
-		File archivo = file.getSelectedFile();	
+		File archivo = file.getSelectedFile();
+
+		return archivo;
+	}
+
+	public  int[][] lectorArchivos(String dato, File archivo) throws FileNotFoundException, IOException
+	{
+
         FileReader f = new FileReader(archivo);
         FileReader f2 = new FileReader(archivo);
         BufferedReader b = new BufferedReader(f);
@@ -24,26 +33,10 @@ public class appTest {
         int filas = 1;
         
         String cadena;
-        
-        
-        
-        while((cadena=b.readLine()) != null)
-        {
-        	cadena = cadena.trim();
-        	if(cadena.equals(dato)){
-            	if((cadena=b.readLine()).contains(",")){
-            		String[] arrTemporal = cadena.split(",");
-            		columnas = arrTemporal.length;
-            		while((cadena=b.readLine()).contains(",")) {
-            			filas ++;
-            		}
-            	}
-            }
-        }
-        
+
         
         int [][] matriz = new int[filas][columnas];
-        String[] matrizLinea;
+        String[] matrizLinea = new String[0];
         
         
         while((cadena=b2.readLine()) != null)
@@ -52,29 +45,29 @@ public class appTest {
         	if(cadena.equals(dato)){
             	int i =0;
             	while((cadena=b2.readLine()).contains(",")){
-            		matrizLinea = cadena.split(",");
-    	        	for (int j = 0; j < columnas; j++) {
-    	        		int actual = Integer.parseInt(matrizLinea[j].trim());
-            			matriz[i][j] = actual;
-    				}
+					matrizLinea = cadena.split(",");
+            		if(matrizLinea.length == 2){
+						grafo.agregarVertice(matrizLinea[0], matrizLinea[1]);
+					}else{
+            			grafo.agregarArco(matrizLinea[0], matrizLinea[1], Double.parseDouble(matrizLinea[2]));
+					}
+
+
     	        	i++;
             	}
             }
         }
         
         
-        for(int i=0 ; i < filas; i++)
-        {
-        	for(int j=0; j < columnas; j++){
-        		System.out.println("["+i+"]["+j+"]"+" = "+matriz[i][j] + " ");
-        	}
-        }
-        
+
         return matriz;
 	}
 	
 	public static void main(String[] args) throws FileNotFoundException, IOException {
-		lectorArchivos("Grafo.arcos");
+		appTest a = new appTest();
+		File f = a.leearArchivo();
+		a.lectorArchivos("Grafo.nodos", f);
+		a.lectorArchivos("Grafo.arcos", f);
 	}
 
 }

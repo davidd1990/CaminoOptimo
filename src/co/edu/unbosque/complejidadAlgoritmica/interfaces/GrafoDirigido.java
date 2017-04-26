@@ -10,7 +10,7 @@ public class GrafoDirigido implements IGrafoDirigido{
     ArrayList <IArco> arcos = new ArrayList<IArco>();
     ArrayList<IVertice> vertices = new ArrayList<IVertice>();
     List<IVertice> camino = new ArrayList<IVertice>();
-
+    List<List> caminos = new ArrayList<List>();
     /**
      * M?todo que retorna el orden (cantidad de nodos) del Grafo.
      * @return el orden del Grafo
@@ -119,8 +119,13 @@ public class GrafoDirigido implements IGrafoDirigido{
         return camino;
     }
 
-
+    @Override
     public List<IVertice> darRecorridoPorAnchura(Object idOrigen) {
+        return null;
+    }
+
+
+    public List<IVertice> darRecorridoPorAnchura(Object idOrigen,Object idDestino) {
 
 
         Queue queue = new LinkedList();
@@ -129,13 +134,14 @@ public class GrafoDirigido implements IGrafoDirigido{
         while(!queue.isEmpty()) {
 
             IVertice node = (IVertice) queue.remove();
+            if(node.darId() == idDestino)
+                caminos.add(camino);
 
-            for(IArco child: (ArrayList<IArco>) node.darSucesores()){
-                child.darDestino().marcar();
-                queue.add(child.darOrigen());
-                camino.add(child.darOrigen());
-            }
-
+                for(IArco child: (ArrayList<IArco>) node.darSucesores()){
+                    child.darDestino().marcar();
+                    queue.add(child.darOrigen());
+                    camino.add(child.darOrigen());
+                }
         }
 
         return camino;
